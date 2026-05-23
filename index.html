@@ -244,11 +244,11 @@
 
   <div class="card">
     <span class="pizza-icon" aria-hidden="true">🍕</span>
-    <h1>Pizza Date Tomorrow?</h1>
+    <h1>Pizza Date?</h1>
     <p class="subtitle">You, me, and a supreme pizza.</p>
     <div class="meta">
-      <span>📅 Tomorrow</span>
-      <span>🕕 6:00 PM</span>
+      <span>📅 24th May 2026</span>
+      <span>🕕 6:00 PM GMT</span>
     </div>
 
     <div class="btn-row" id="btn-row">
@@ -264,7 +264,7 @@
     <div class="dialog">
       <span class="dialog-emoji">🎉</span>
       <h2>Never doubted for one second that you'd say no!</h2>
-      <p>See you tomorrow at 6 PM — save the date so you don't forget!</p>
+      <p>See you on 24th May 2026 at 6 PM — save the date so you don't forget!</p>
       <a id="cal-btn" href="#" class="cal-link" target="_blank">📅 Add to Google Calendar</a><br>
       <button class="btn-close" onclick="closeDialog()">Close</button>
     </div>
@@ -420,15 +420,9 @@
   }
 
   function buildCalUrl() {
-    const now = new Date();
-    const tomorrow = new Date(now);
-    tomorrow.setDate(now.getDate() + 1);
-    const pad = n => String(n).padStart(2, '0');
-    const y = tomorrow.getFullYear();
-    const m = pad(tomorrow.getMonth() + 1);
-    const d = pad(tomorrow.getDate());
-    const start = y + m + d + 'T180000';
-    const end   = y + m + d + 'T200000';
+    // 24 May 2026 - 6 PM to 8 PM
+    const start = '20260524T170000Z';
+    const end   = '20260524T190000Z';
     const params = new URLSearchParams({
       action: 'TEMPLATE',
       text: '🍕 Pizza Date',
